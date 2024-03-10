@@ -1,5 +1,5 @@
 {
-    "name": "tech-challenge-novo-pagamento",
+    "name": "tech-challenge-novo-pedido-producao",
     "version": "1.0.0",
     "dependencies": {
         "aws-lambda": "^1.0.7"

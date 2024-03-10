@@ -7,7 +7,7 @@ jobs:
   lambdas:
     strategy:
       matrix:
-        lambda: [novoPagamento]
+        lambda: [novoPagamento, novoPedidoProducao, statusPagamento, statusProducao]
     runs-on: ubuntu-latest
     environment: aws
     steps:
