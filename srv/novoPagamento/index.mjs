@@ -10,7 +10,7 @@ export const handler = async (event, context) => {
             const options = {
                 hostname: process.env.PAGAMENTO_API,
                 port: 443,
-                path: '/pagamento',
+                path: '/pagamentos',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

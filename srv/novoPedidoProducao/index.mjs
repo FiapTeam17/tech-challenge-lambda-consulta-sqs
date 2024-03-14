@@ -10,7 +10,7 @@ export const handler = async (event, context) => {
             const options = {
                 hostname: process.env.PRODUCAO_API,
                 port: 443,
-                path: '/',
+                path: '/pedidos',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

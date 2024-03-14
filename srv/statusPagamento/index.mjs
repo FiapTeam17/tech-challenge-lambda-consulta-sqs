@@ -10,8 +10,8 @@ export const handler = async (event, context) => {
             const options = {
                 hostname: process.env.PEDIDO_API,
                 port: 443,
-                path: '/',
-                method: 'POST',
+                path: `/pedidos/${message.body.identificador}/${message.body.status}`,
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                     'Content-Length': data.length
@@ -26,8 +26,8 @@ export const handler = async (event, context) => {
             req.on('error', error => {
                 console.error(error)
             })
-            req.write(data)
-            req.end()
+            req.write(data);
+            req.end();
 
         } catch (err) {
             console.error("An error occurred");
