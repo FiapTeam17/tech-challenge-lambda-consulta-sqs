@@ -5,12 +5,14 @@ export const handler = async (event, context) => {
     for (const message of event.Records) {
         try {
             console.log("Message: \n" + JSON.stringify(message.body, null, 2));
-            const data = JSON.stringify(message.body);
+            const data = {
+                status: message.body.status
+            };
 
             const options = {
                 hostname: process.env.PEDIDO_API,
                 port: 443,
-                path: `/pedidos/${message.body.identificador}/${message.body.status}`,
+                path: `/pedidos/${message.body.idPedido}/status`,
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
