@@ -1,4 +1,4 @@
-import * as https from 'https';
+import * as http from 'http';
 
 export const handler = async (event, context) => {
     console.log("EVENT: \n" + JSON.stringify(event, null, 2));
@@ -16,7 +16,7 @@ export const handler = async (event, context) => {
                     'Content-Length': data.length
                 }
             }
-            const req = https.request(options, res => {
+            const req = http.request(options, res => {
                 console.log(`statusCode: ${res.statusCode}`)
                 res.on('data', d => {
                     process.stdout.write(d)
