@@ -8,8 +8,8 @@ export const handler = async (event, context) => {
             const data = JSON.stringify(message.body);
 
             const options = {
-                hostname: process.env.PRODUCAO_API,
-                path: '/pedidos',
+                hostname: `${process.env.PRODUCAO_API}/pedidos`,
+                path: '',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
