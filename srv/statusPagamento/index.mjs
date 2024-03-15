@@ -1,36 +1,13 @@
-import * as https from 'https';
+import axios from "axios";
 
 export const handler = async (event, context) => {
-    console.log("EVENT: \n" + JSON.stringify(event, null, 2));
+
     for (const message of event.Records) {
         try {
-            console.log("Message: \n" + JSON.stringify(message.body, null, 2));
-            const data = JSON.stringify(message.body);
-
-            const options = {
-                hostname: process.env.PEDIDO_API,
-                path: `/pedidos/${message.body.identificador}/${message.body.status}`,
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Content-Length': data.length
-                }
-            }
-            const req = https.request(options, res => {
-                console.log(`statusCode: ${res.statusCode}`)
-                res.on('data', d => {
-                    process.stdout.write(d)
-                })
-            })
-            req.on('error', error => {
-                console.error(error)
-            })
-            req.write(data);
-            req.end();
-
-        } catch (err) {
-            console.error("An error occurred");
-            throw err;
+            const response = await axios.patch(`${process.env.PEDIDO_API}/pedidos/${message.body.identificador}/${message.body.status}`, message.body);
+            console.log(response);
+        } catch (error) {
+            console.error(error);
         }
     }
     console.info("done");
