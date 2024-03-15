@@ -9,7 +9,6 @@ export const handler = async (event, context) => {
 
             const options = {
                 hostname: process.env.PAGAMENTO_API,
-                port: 80,
                 path: '/pagamentos',
                 method: 'POST',
                 headers: {

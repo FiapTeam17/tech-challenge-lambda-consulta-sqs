@@ -11,7 +11,6 @@ export const handler = async (event, context) => {
 
             const options = {
                 hostname: process.env.PEDIDO_API,
-                port: 80,
                 path: `/pedidos/${message.body.idPedido}/status`,
                 method: 'PATCH',
                 headers: {
