@@ -1,0 +1,8 @@
+{
+    "name": "tech-challenge-status-pagamento",
+    "version": "1.0.0",
+    "dependencies": {
+        "aws-lambda": "^1.0.7",
+        "axios": "^1.6.7"
+    }
+}
